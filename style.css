@@ -81,7 +81,7 @@ body {
   padding: 10px 10px 10px 150px;
   opacity: 0;
   transform: translateY(0%);
-  transition: transform 1s, opacity 5s ;
+  transition: transform 1s, opacity 1s ;
   z-index: 0;
 }
 
@@ -95,12 +95,13 @@ body {
 }
 
 .progress-container {
-  background: rgba(253, 212, 0, 1);
+  background: rgb(253, 212, 0, 1);
   border-radius: 5px;
   cursor: pointer;
   margin: 10px 0;
   height: 4px;
   width: 100%;
+  z-index: -10;
 }
 
 .progress {
@@ -109,4 +110,32 @@ body {
   height: 100%;
   width: 0%;
   transition: width 0.1s linear;
+  z-index: -10;
+
+}
+
+.social-menu ul {
+    position: absolute;
+    top:95%;
+    left:10%;
+    padding: 0;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.social-menu ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+.social-menu ul li a {
+  position:relative;
+  display: block;
+  text-align: center;
+  transition: .6s;
+}
+
+.social-menu ul li a:hover {
+  transform: translate(0, -10px);
 }
