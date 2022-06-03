@@ -32,14 +32,13 @@ body {
 
 .img-container {
   position: relative;
-  width: 110px;
+  width: 210px;
 }
 
 .img-container img {
   border-radius: 50%;
   object-fit: cover;
   height: 110px;
-  width: inherit;
   position: absolute;
   bottom: 0;
   left: 0;
