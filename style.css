@@ -81,7 +81,7 @@ body {
   padding: 10px 10px 10px 150px;
   opacity: 0;
   transform: translateY(0%);
-  transition: transform 1s, opacity 1s ;
+  transition: transform 1s, opacity 5s ;
   z-index: 0;
 }
 
