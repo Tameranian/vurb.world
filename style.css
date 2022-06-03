@@ -95,7 +95,7 @@ body {
 }
 
 .progress-container {
-  background: rgb(253, 212, 0, 1);
+  background: rgb(253, 212, 0, 0);
   border-radius: 5px;
   cursor: pointer;
   margin: 10px 0;
