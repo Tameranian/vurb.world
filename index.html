@@ -45,9 +45,30 @@
 
       <div class="credit-footer">
           <ul>
-              <li><a href="https://twitter.com/Tameranian3d"><img src="images/link-tam.png" width="40" height="40"></a></li>
-              <li><a href="https://ant.newgrounds.com/"><img src="images/link-ant.png" width="40" height="40"></a></li>
-              <li><a href="https://twitter.com/grubby_guy"><img src="images/link-grub.png" width="40" height="40"></a></li>
+              <li>
+                  <a href="https://twitter.com/Tameranian3d">
+                      <img src="images/link-tam.png" width="40" height="40">
+                      <div class="text-box">
+                          <span class="text">Vurb website creator.</span>
+                      </div>
+                  </a>
+              </li>
+              <li>
+                  <a href="https://ant.newgrounds.com/">
+                      <img src="images/link-ant.png" width="40" height="40">
+                      <div class="text-box">
+                          <span class="text">Creator of the Vurb game.</span>
+                      </div>
+                  </a>
+              </li>
+              <li>
+                  <a href="https://twitter.com/grubby_guy">
+                      <img src="images/link-grub.png" width="40" height="40">
+                      <div class="text-box">
+                          <span class="text">Made the Vurb 3d model.</span>
+                      </div>
+                  </a>
+              </li>
           </ul>
       </div>
 
@@ -59,7 +80,7 @@
 
       <div id="logo-container">
           <div class="div-wrapper">
-              <a href="music.html"><img src="images/vurbworldClickhere.png" class="sky-img"></a>
+              <a href="gallery.html"><img src="images/vurbworldClickhere.png" class="sky-img"></a>
           </div>
       </div>
 
@@ -72,6 +93,24 @@
       <div class="main-content"></div>
 
       <script>
+          const imageLinks = document.querySelectorAll('.credit-footer ul li a');
+
+          imageLinks.forEach(link => {
+              link.addEventListener('mouseover', () => {
+                  const textBox = link.querySelector('.text-box');
+                  const text = link.querySelector('.text');
+                  textBox.classList.add('active');
+                  text.classList.add('active');
+              });
+
+              link.addEventListener('mouseout', () => {
+                  const textBox = link.querySelector('.text-box');
+                  const text = link.querySelector('.text');
+                  textBox.classList.remove('active');
+                  text.classList.remove('active');
+              });
+          });
+
           let spinnerWrapper = document.querySelector('.spinner-wrapper');
 
           window.addEventListener('load', function () {
