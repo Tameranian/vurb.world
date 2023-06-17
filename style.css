@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
-@font-face {
-    font-family: 'HelveticaNeueLTStd-BlkEx';
-    src: url(fonts/HelveticaNeueLTStd-BlkEx.otf);
-}
 * {
   box-sizing: border-box;
 }
@@ -82,25 +78,6 @@ body {
 
 }
 
-#music-link-container {
-    padding-top: 125px;
-    margin: -50px auto;
-    display: flex;
-    justify-content: center;
-}
-
-.music-link {
-    position: fixed;
-    top: 94%;
-    left: 8%;
-    padding: 14px;
-    margin: auto;
-    transform: translate(-50%, -50%);
-    display: flex;
-    width: 14vw;
-}
-
-
 .social-menu ul li {
   list-style: none;
   margin: 0 15px;
@@ -118,7 +95,7 @@ body {
 }
 
 .credit-footer ul {
-    position: absolute; /* Change to relative */
+    position: absolute;
     top: 95%;
     left: 50%;
     padding: 0;
@@ -127,62 +104,24 @@ body {
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
-
 }
 
-    .credit-footer ul li {
-        list-style: none;
-        margin: 0 17vw;
-    }
-
-        .credit-footer ul li a {
-            position: relative;
-            display: block;
-            text-align: center;
-            transition: .6s;
-        }
-
-            .credit-footer ul li a:hover {
-                transform: translate(0, -10px);
-            }
-
-.text-box {
-    position: absolute;
-    top: -190%; /* Adjust the value to position it higher */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: black; /* Set the background color to black */
-    color: white; /* Set the text color to white */
-    padding: 20px; /* Increase padding for a bigger text box */
-    opacity: 0;
-    transition: opacity 0.5s;
-    border-radius: 10px; /* Add border-radius for rounded corners */
-    width: 200px; /* Set the width to the desired value */
-    font-family: 'HelveticaNeueLTStd-BlkEx', Arial, sans-serif;
-}
-    .text-box::before {
-        content: "";
-        position: absolute;
-        bottom: -10px; /* Adjust the value to position the cube */
-        left: 50%;
-        transform: translateX(-50%) rotate(45deg); /* Rotate the cube */
-        width: 20px; /* Set the size of the cube */
-        height: 20px;
-        background-color: black; /* Set the cube color */
-    }
-
-.text {
-    opacity: 0;
-    transition: opacity 0.5s;
+.credit-footer ul li {
+    list-style: none;
+    margin: 0 17vw;
 }
 
-.text-box.active {
-    opacity: 1;
+.credit-footer ul li a {
+    position: relative;
+    display: block;
+    text-align: center;
+    transition: .6s;
 }
 
-.text.active {
-    opacity: 1;
+.credit-footer ul li a:hover {
+    transform: translate(0, -10px);
 }
+
 .youtube-playlist ul{
   list-style-type: none;
 
