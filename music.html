@@ -1,527 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
 
-    <meta name="keywords" content="Vurbank, VurbVurb, VURBANK ONLINE">
-    <meta name="author" content="John Doe">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta property="og:title" content="VURBANK - Listen to all of Vurb’s songs here.">
-    <meta property="og:site_name" content="VURB.WORLD">
-    <meta name="description" content="VURBANK - Listen to all of Vurb’s songs here.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" name="twitter:image:src" itemprop="image" content="images/site_preview.png">
-    <meta property="og:image" content="images/site_preview.png">
-    <meta property="og:image" itemprop="image" content="images/site_preview.png">
-    <meta property="og:url" content="http://vurb.world/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image:type" content="images/png">
-
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Tameranian" />
+    <meta name="keywords" content="Vurbank, VurbVurb, VURBANK ONLINE" />
+    <meta
+      name="description"
+      content="VURBANK - Listen to all of Vurb’s songs here."
+    />
 
     <meta name="msapplication-TileImage" content="images/site_preview.png" />
+    <meta name="twitter:card" content="images/site_preview.png" />
+    <meta property="og:image:type" content="images/site_preview.png" />
+    <meta
+      property="og:title"
+      content="VURBANK - Listen to all of Vurb’s songs here."
+    />
+    <meta property="og:site_name" content="VURB.WORLD" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      name="twitter:image:src"
+      itemprop="image"
+      content="images/site_preview.png"
+    />
+    <meta property="og:image" content="images/site_preview.png" />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="images/site_preview.png"
+    />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:url" content="http://VURB.WORLD/" />
 
-
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <meta http-equiv='cache-control' content='no-cache'>
-    <meta http-equiv='expires' content='0'>
-    <meta http-equiv='pragma' content='no-cache'>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <title>VURB.WORLD</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            margin-bottom: 200px; /* Add a margin of 50px to the bottom of the page */
-        }
-        .banner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 60px;
-            margin-bottom: 20px;
-            margin-top: 50px;
-        }
-
-            .banner img {
-                display: block;
-                max-height: 100%;
-                max-width: 100%;
-                object-fit: contain;
-            }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .album-list {
-            list-style: none;
-        }
-
-        .song-list {
-            list-style: none;
-            max-height: 200px; /* Adjust the maximum height as needed */
-            overflow-y: auto;
-            opacity: 1;
-            transition: opacity 0.5s;
-            padding: 0; /* Remove padding */
-        }
-
-            .song-list li {
-                cursor: pointer;
-                margin-bottom: 5px;
-                font-family: 'HelveticaNeueLTStd-BlkEx', Arial, sans-serif;
-                text-align: center; /* Center align the song list text */
-                transition: background-color 0.3s ease;
-                position: relative;
-                overflow: hidden;
-            }
-                .song-list li::before {
-                    content: "";
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 0%;
-                    height: 100%;
-                    background-color: rgba(242, 242, 242, 0);
-                    transition: width 0.3s ease;
-                    z-index: -1;
-                }
-                .song-list li:hover {
-                    background-color: transparent; /* Hide the basic hover background */
-                }
-                .song-list li:hover::before {
-                    width: 100%;
-                    background-color: rgba(242, 242, 242, 0.8);
-                }
-
-            .song-list.fade-out {
-                opacity: 0;
-            }
-
-            .song-list::-webkit-scrollbar {
-                width: 5px; /* Adjust the scrollbar width as needed */
-            }
-
-            .song-list::-webkit-scrollbar-thumb {
-                background-color: darkgoldenrod;
-            }
-
-
-        .music-player {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-            .music-player h2 {
-                margin-bottom: 5px;
-                font-family: 'HelveticaNeueLTStd-BlkEx', Arial, sans-serif;
-                text-decoration: underline;
-                text-decoration-thickness: 3px;
-                padding: 10px;
-            }
-        .controls {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .control-btn {
-            background-color: #ffffff;
-            color: #000000;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 10px 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-            .control-btn:hover {
-                background-color: #000000;
-                color: #ffffff;
-                cursor: pointer;
-            }
-
-        /*.scrolling-text {
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100%;*/ /* Set a maximum width for the scrolling text */
-        /*animation: marquee 8s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }*/
-
-        @font-face {
-            font-family: 'HelveticaNeueLTStd-BlkEx';
-            src: url(fonts/HelveticaNeueLTStd-BlkEx.otf);
-        }
-        .control-btn {
-            position: relative;
-            padding: 14px;
-            background-color: #ffffff;
-            border: none;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-            .control-btn:active {
-                transform: translateY(2px);
-                box-shadow: none;
-            }
-
-            .control-btn.active {
-                box-shadow: none;
-                transform: translateY(2px) translateX(2px);
-                background-color: black;
-                color: #ffffff;
-            }
-    </style>
-</head>
-<body>
-
-    <div class="banner">
-        <img src="images/music_dot_png.png" alt="music_dot_png">
-    </div>
-
-    <div class="container">
-
-        <div class="music-player">
-            <h2>CHUNES</h2>
-            <div class="song-list">
-                <!-- Add songs for Album 3 -->
-                <li onclick="Vurb - Chunes - 01 - DREADZ">DREADZ</li>
-                <li onclick="vurb - chunes - 02 - Silly Plonka!">SILLY PLONKA!</li>
-                <li onclick="vurb - chunes - 03 - Da Strut">DA STRUT</li>
-                <li onclick="Vurb - chunes - 04 - Luv Crash">LUV CRASH</li>
-            </div>
-            <div class="controls">
-                <button id="previousBtn" class="control-btn" data-album="album3">
-                    <i class="fas fa-step-backward"></i>
-                </button>
-                <button id="playPauseBtn" class="control-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button id="nextBtn" class="control-btn" data-album="album3">
-                    <i class="fas fa-step-forward"></i>
-                </button>
-                <button id="shuffleBtn" class="control-btn">
-                    <i class="fas fa-random"></i>
-                </button>
-            </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body class="music-page">
+    <div class="page-menu">
+      <div id="selected-page-container">
+        <img src="images/music_banner_asset.png" class="selected-page-text" />
+      </div>
+      <div class="page-menu">
+        <div id="selected-page-container">
+          <img src="images/music_banner_asset.png" class="selected-page-text" />
         </div>
-
-        <div class="music-player">
-            <h2>OK!</h2>
-            <div class="song-list">
-                <!-- Add songs for Album 2 -->
-                <li onclick="PUNK•SHIT!">PUNK SHIT!</li>
-                <li onclick="VEIL•OF•TEARS!">VEIL OF TEARS!</li>
-                <li onclick="FERGALICIOUS!">FERGALICIOUS!</li>
-                <li onclick="PREGNANT•CHEERLEADER!">PREGNANT CHEERLEADER!</li>
-                <li onclick="OK!">OK!</li>
-                <li onclick="UTTERANCES•OF•THE•HEART!">UTTERANCES OF THE HEART!</li>
-                <li onclick="LITERALLY•EVIL!">LITERALLY EVIL!</li>
-                <li onclick="I•DON’T•WANT•TO•GO!">I DON’T WANT TO GO!</li>
-                <li onclick="GETTING•READY!">GETTING READY!</li>
-                <li onclick="TOUCH!">TOUCH!</li>
-                <li onclick="RIZLA!">RIZLA!</li>
-                <li onclick="PURE•GASOLINE!">PURE GASOLINE!</li>
-                <li onclick="ILY4EVR!">ILY4EVR!</li>
-                <li onclick="COPYRIGHT•INFRINGEMENT!">COPYRIGHT INFRINGEMENT!</li>
-                <li onclick="BETHPAGE">BETHPAGE!</li>
-                <li onclick="EIGHTY•SIX">EIGHTY SIX!</li>
-                <li onclick="U•DON’T•NEED•2">U DON’T NEED 2!</li>
-                <li onclick="BABY">BABY!</li>
-                <li onclick="NEW•CHUNE">NEW CHUNE!</li>
-                <li onclick="DEAD•ISSUE">DEAD ISSUE!</li>
-                <li onclick="LOSER">LOSER!</li>
-                <li onclick="BIFTA">BIFTA!</li>
-            </div>
-            <div class="controls">
-                <button id="previousBtn" class="control-btn" data-album="album2">
-                    <i class="fas fa-step-backward"></i>
-                </button>
-                <button id="playPauseBtn" class="control-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button id="nextBtn" class="control-btn" data-album="album2">
-                    <i class="fas fa-step-forward"></i>
-                </button>
-                <button id="shuffleBtn" class="control-btn">
-                    <i class="fas fa-random"></i>
-                </button>
-            </div>
-        </div>
-        <div class="music-player">
-            <h2>DEAD ISSUE</h2>
-            <div class="song-list">
-                <!-- Add songs for Album 1 -->
-                <li onclick="DEAD•ISSUE">DEAD ISSUE</li>
-                <li onclick="BETHPAGE">BETHPAGE</li>
-                <li onclick="NEW•CHUNE">NEW CHUNE</li>
-                <li onclick="ILY4EVR!">ILY4EVR!</li>
-                <li onclick="I•DON’T•WANT•TO•GO!">I DON’T WANT TO GO!</li>
-                <li onclick="JMSN - SO BADLY (VURB REMIX)">JMSN - SO BADLY (VURB REMIX)</li>
-                <li onclick="JMSN - STREET SWEEPER (VURB REMIX)">JMSN - STREET SWEEPER (VURB REMIX)</li>
-            </div>
-            <div class="controls">
-                <button id="previousBtn" class="control-btn" data-album="album1">
-                    <i class="fas fa-step-backward"></i>
-                </button>
-                <button id="playPauseBtn" class="control-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button id="nextBtn" class="control-btn" data-album="album1">
-                    <i class="fas fa-step-forward"></i>
-                </button>
-                <button id="shuffleBtn" class="control-btn">
-                    <i class="fas fa-random"></i>
-                </button>
-            </div>
-        </div>
-
-
-    </div>
-
-    <div class="social-menu">
-        <ul>
-            <li><a href="https://www.youtube.com/c/VURBANK/videos"><img src="images/youtube.png" width="40" height="40"></a></li>
-            <li><a href="https://vurb.newgrounds.com/"><img src="images/newgrounds.png" width="40" height="40"></a></li>
-            <li><a href="https://twitter.com/VurbVurb"><img src="images/twitter.png" width="40" height="40"></a></li>
-            <li><a href="https://vurbank.bandcamp.com/"><img src="images/bandcamp.png" width="40" height="40"></a></li>
-            <li><a href="https://discord.gg/PgpMEgZyPq"><img src="images/discord.png" width="40" height="40"></a></li>
+        <ul class="page-links">
+          <li class="page-link">
+            <a href="index.html"
+              ><img src="images/vurbworldClickhereInverted.png"
+            /></a>
+          </li>
+          <li class="page-link">
+            <a href=""><img src="" /></a>
+          </li>
+          <li class="page-link">
+            <a href=""><img src="" /></a>
+          </li>
+          <li class="page-link">
+            <a href="gallery.html"
+              ><img src="images/gallery__banner_asset.png"
+            /></a>
+          </li>
+          <li class="page-link">
+            <a href="about.html"><img src="images/about_banner_asset.png" /></a>
+          </li>
         </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bar">
+      <p id="currentSongText" class="current-song-text"></p>
+      <p id="shuffleStatus" class="shuffle-status"></p>
+      <div class="controls">
+        <button id="previousBtn" class="control-btn">
+          <i class="fas fa-step-backward"></i>
+        </button>
+        <button id="playPauseBtn" class="control-btn">
+          <i class="fas fa-play"></i>
+        </button>
+        <button id="nextBtn" class="control-btn">
+          <i class="fas fa-step-forward"></i>
+        </button>
+        <button id="shuffleBtn" class="control-btn">
+          <i class="fas fa-random"></i>
+        </button>
+      </div>
     </div>
 
-    <div id="homepage-link-container">
-        <div class="div-wrapper">
-            <a href="index.html"><img src="images/vurbWorld.png" class="homepage-link"></a>
+    <div class="music-players">
+      <div class="music-player">
+        <h2>CHUNES</h2>
+        <div class="song-list">
+          <li
+            data-song-index="0"
+            data-album="01 CHUNES"
+            onclick="playSong('01 CHUNES', 0)"
+          >
+            DA•STRUT
+          </li>
+
+          <li
+            data-song-index="1"
+            data-album="01 CHUNES"
+            onclick="playSong('01 CHUNES', 1)"
+          >
+            DREADZ
+          </li>
+
+          <li
+            data-song-index="2"
+            data-album="01 CHUNES"
+            onclick="playSong('01 CHUNES', 2)"
+          >
+            LUV•CRASH
+          </li>
+
+          <li
+            data-song-index="3"
+            data-album="01 CHUNES"
+            onclick="playSong('01 CHUNES', 3)"
+          >
+            SILLY•PLONKA!
+          </li>
         </div>
+      </div>
+
+      <div class="music-player">
+        <h2>OK!</h2>
+        <div class="song-list">
+          <li
+            data-song-index="0"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 0)"
+          >
+            BABY
+          </li>
+
+          <li
+            data-song-index="1"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 1)"
+          >
+            BETHPAGE
+          </li>
+
+          <li
+            data-song-index="2"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 2)"
+          >
+            BIFTA
+          </li>
+
+          <li
+            data-song-index="3"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 3)"
+          >
+            COPYRIGHT•INFRINGEMENT!
+          </li>
+
+          <li
+            data-song-index="4"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 4)"
+          >
+            DEAD•ISSUE
+          </li>
+
+          <li
+            data-song-index="5"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 5)"
+          >
+            EIGHTY•SIX
+          </li>
+
+          <li
+            data-song-index="6"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 6)"
+          >
+            FERGALICIOUS!
+          </li>
+
+          <li
+            data-song-index="7"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 7)"
+          >
+            GETTING•READY!
+          </li>
+
+          <li
+            data-song-index="8"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 8)"
+          >
+            ILY4EVR!
+          </li>
+
+          <li
+            data-song-index="9"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 9)"
+          >
+            I•DON’T•WANT•TO•GO!
+          </li>
+
+          <li
+            data-song-index="10"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 10)"
+          >
+            LITERALLY•EVIL!
+          </li>
+
+          <li
+            data-song-index="11"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 11)"
+          >
+            LOSER
+          </li>
+
+          <li
+            data-song-index="12"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 12)"
+          >
+            NEW•CHUNE
+          </li>
+
+          <li
+            data-song-index="13"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 13)"
+          >
+            OK!
+          </li>
+
+          <li
+            data-song-index="14"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 14)"
+          >
+            PREGNANT•CHEERLEADER!
+          </li>
+
+          <li
+            data-song-index="15"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 15)"
+          >
+            PUNK•SHIT!
+          </li>
+
+          <li
+            data-song-index="16"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 16)"
+          >
+            PURE•GASOLINE!
+          </li>
+
+          <li
+            data-song-index="17"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 17)"
+          >
+            RIZLA!
+          </li>
+
+          <li
+            data-song-index="18"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 18)"
+          >
+            TOUCH!
+          </li>
+
+          <li
+            data-song-index="19"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 19)"
+          >
+            UTTERANCES•OF•THE•HEART!
+          </li>
+
+          <li
+            data-song-index="20"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 20)"
+          >
+            U•DON’T•NEED•2
+          </li>
+
+          <li
+            data-song-index="21"
+            data-album="02 OK!"
+            onclick="playSong('02 OK!', 21)"
+          >
+            VEIL•OF•TEARS!
+          </li>
+        </div>
+      </div>
+
+      <div class="music-player">
+        <h2>DEAD ISSUE</h2>
+        <div class="song-list">
+          <li
+            data-song-index="0"
+            data-album="03 DEAD ISSUE"
+            onclick="playSong('03 DEAD ISSUE', 0)"
+          >
+            BETHPAGE
+          </li>
+
+          <li
+            data-song-index="1"
+            data-album="03 DEAD ISSUE"
+            onclick="playSong('03 DEAD ISSUE', 1)"
+          >
+            DEAD•ISSUE
+          </li>
+
+          <li
+            data-song-index="2"
+            data-album="03 DEAD ISSUE"
+            onclick="playSong('03 DEAD ISSUE', 2)"
+          >
+            ILY4EVR!
+          </li>
+
+          <li
+            data-song-index="3"
+            data-album="03 DEAD ISSUE"
+            onclick="playSong('03 DEAD ISSUE', 3)"
+          >
+            I•DON’T•WANT•TO•GO!
+          </li>
+
+          <li
+            data-song-index="4"
+            data-album="03 DEAD ISSUE"
+            onclick="playSong('03 DEAD ISSUE', 4)"
+          >
+            JMSN - SO BADLY (VURB REMIX)
+          </li>
+
+          <li
+            data-song-index="5"
+            data-album="03 DEAD ISSUE"
+            onclick="playSong('03 DEAD ISSUE', 5)"
+          >
+            JMSN - STREET SWEEPER (VURB REMIX)
+          </li>
+
+          <li
+            data-song-index="6"
+            data-album="03 DEAD ISSUE"
+            onclick="playSong('03 DEAD ISSUE', 6)"
+          >
+            NEW•CHUNE
+          </li>
+        </div>
+      </div>
     </div>
-
-
-
-    <div class='spinner-wrapper'>
-        <div class="spinner"></div>
-    </div>
-
-    <div class="main-content"></div>
-
-    <script>
-        let spinnerWrapper = document.querySelector('.spinner-wrapper');
-
-        window.addEventListener('load', function () {
-            // spinnerWrapper.style.display = 'none';
-            spinnerWrapper.parentElement.removeChild(spinnerWrapper);
-        });
-    </script>
-
-    <div class="banner">
-
-    </div>
-    <script>
-        var songLists = {
-            album1: [
-                'DEAD•ISSUE',
-                'BETHPAGE',
-                'NEW•CHUNE',
-                'ILY4EVR!',
-                'I•DON’T•WANT•TO•GO!',
-                'NEW•CHUNE',
-                'JMSN - SO BADLY (VURB REMIX)',
-                'JMSN - STREET SWEEPER (VURB REMIX)'
-            ],
-            album2: [
-                'PUNK•SHIT!',
-                'VEIL•OF•TEARS!',
-                'FERGALICIOUS!',
-                'PREGNANT•CHEERLEADER!',
-                'OK!',
-                'UTTERANCES•OF•THE•HEART!',
-                'LITERALLY•EVIL!',
-                'I•DON’T•WANT•TO•GO!',
-                'GETTING•READY!!',
-                'TOUCH!',
-                'RIZLA!',
-                'PURE•GASOLINE!',
-                'ILY4EVR!',
-                'COPYRIGHT•INFRINGEMENT!',
-                'BETHPAGE',
-                'EIGHTY•SIX',
-                'U•DON’T•NEED•2',
-                'BABY',
-                'NEW•CHUNE',
-                'DEAD•ISSUE',
-                'LOSER',
-                'BIFTA'
-            ],
-            album3: [
-                'Vurb - Chunes - 01 - DREADZ',
-                'vurb - chunes - 02 - Silly Plonka!',
-                'vurb - chunes - 03 - Da Strut',
-                'Vurb - chunes - 04 - Luv Crash'
-            ]
-        };
-        var currentSongIndex = -1;
-        var isPlaying = false;
-        var isShuffleOn = false;
-        var audio = new Audio();
-
-        // Function to play the selected song
-        function playSong(songName) {
-            pauseSong();
-            audio = new Audio('music/' + songName + '.mp3');
-            audio.play();
-            isPlaying = true;
-            audio.addEventListener('ended', playNextSong);
-        }
-
-        // Function to pause the currently playing song
-        function pauseSong() {
-            audio.pause();
-            isPlaying = false;
-            audio.removeEventListener('ended', playNextSong);
-        }
-
-        // Function to play or pause the song based on the current state
-        function playPause() {
-            if (isPlaying) {
-                pauseSong();
-            } else {
-                var albumId = getActiveAlbumId();
-                var songList = songLists[albumId];
-                if (currentSongIndex >= 0 && currentSongIndex < songList.length) {
-                    audio.play();
-                    isPlaying = true;
-                    audio.addEventListener('ended', playNextSong);
-                }
-            }
-            togglePlayPauseIcon();
-        }
-        // Function to toggle the play/pause button icon
-        function togglePlayPauseIcon() {
-            var playPauseBtn = document.getElementById('playPauseBtn');
-            if (isPlaying) {
-                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            } else {
-                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            }
-        }
-
-        // Function to play the next song within the specified album
-        function nextSong(albumId) {
-            var songList = songLists[albumId];
-            if (isShuffleOn) {
-                currentSongIndex = getRandomIndex(songList.length);
-            } else {
-                currentSongIndex = (currentSongIndex + 1) % songList.length;
-            }
-            playSong(songList[currentSongIndex]);
-        }
-
-        // Function to play the previous song within the specified album
-        function previousSong(albumId) {
-            var songList = songLists[albumId];
-            if (isShuffleOn) {
-                currentSongIndex = getRandomIndex(songList.length);
-            } else {
-                currentSongIndex = (currentSongIndex - 1 + songList.length) % songList.length;
-            }
-            playSong(songList[currentSongIndex]);
-        }
-
-        // Function to toggle shuffle mode
-        function toggleShuffle() {
-            isShuffleOn = !isShuffleOn;
-            console.log('Shuffle: ' + isShuffleOn);
-            var shuffleBtn = document.getElementById('shuffleBtn');
-            shuffleBtn.classList.toggle('active');
-        }
-
-        // Get a random index within the specified range
-        function getRandomIndex(range) {
-            var index = Math.floor(Math.random() * range);
-            return index;
-        }
-
-        // Play the next song
-        function playNextSong() {
-            var albumId = this.getAttribute('data-album');
-            nextSong(albumId);
-        }
-
-        // Initialize the song lists for each music player
-        var musicPlayers = document.querySelectorAll('.music-player');
-        musicPlayers.forEach(function (musicPlayer) {
-            var albumId = musicPlayer.querySelector('h2').textContent;
-            albumId = albumId.toLowerCase().replace(/\s/g, '');
-            var songItems = musicPlayer.querySelectorAll('.song-list li');
-            songItems.forEach(function (songItem, index) {
-                songItem.addEventListener('click', function () {
-                    var songName = this.getAttribute('onclick');
-                    console.log('Selected Song: ' + songName);
-                    playSong(songName);
-                    currentSongIndex = index;
-                });
-            });
-        });
-
-        // Add event listeners to the control buttons
-        var controlBtns = document.querySelectorAll('.control-btn');
-        controlBtns.forEach(function (button) {
-            button.addEventListener('click', handleButtonClick);
-        });
-
-        // Event listener for button clicks
-        function handleButtonClick(event) {
-            var button = event.target;
-            var albumId = button.getAttribute('data-album');
-
-            switch (button.id) {
-                case 'previousBtn':
-                    previousSong(albumId);
-                    break;
-                case 'playPauseBtn':
-                    playPause();
-                    break;
-                case 'nextBtn':
-                    nextSong(albumId);
-                    break;
-                case 'shuffleBtn':
-                    toggleShuffle();
-                    break;
-            }
-        }
-    </script>
-
-</body>
+    
+    <script src="musicPlayer.js" defer></script>
+  </body>
 </html>
